@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo Gameiro Correa">
+    <meta name="description" content="WDD 231 - Home Page">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="scripts/courses.js"></script>
+    <script defer src="scripts/index.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="profile-container">
+            <img src="images/leo.jpg" alt="profile-picture" class="profile-picture">
+            <p class="profile-name">Leonardo Correa</p>
+        </div>
+        <!-- Nav Bar -->
+        <nav class="nav-bar">
+            <div class="nav-items-container">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#" class="nav-item">Chamber</a>
+                <a href="#" class="nav-item">Final</a>
+                <a href="https://github.com/LeoGC7" target="_blank" class="nav-item">GitHub Profile</a>
+                <a href="https://www.linkedin.com/in/leonardo-correa-12762827b/" target="_blank" class="nav-item">LinkedIn</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Main section 1 -->
+        <div class="main-s1">
+            <h1 class="page-title">Home</h1>
+        </div>
+        <!-- Main Section 2 -->
+        <div class="main-s2">
+            <!-- Course Section -->
+            <section class="course-section">
+                <div class="section-title-container">
+                    <h2 class="section-title">Course Work</h2>
+                </div>
+                <div class="course-content">
+                    <ul class="course-list">
+                        <li class="course-item">Lorem ipsum dolor sit amet.</li>
+                        <li class="course-item">Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
+                        <li class="course-item">Lorem ipsum dolor sit.</li>
+                    </ul>
+                </div>
+            </section>
+            <!-- City Section -->
+            <section class="city-section">
+                <div class="section-title-container">
+                    <h2 class="section-title">São Paulo, Brasil</h2>
+                </div>
+                <div class="city-content">
+                    <figure>
+                        <img src="images/sao-paulo-city.jpg" alt="sao-paulo-city" class="city-image">
+                        <figcaption class="caption">The city of São Paulo</figcaption>
+                    </figure>
+                </div>
+            </section>
+        </div>
+        <div class="main-s3">
+            <!-- Certificate Section -->
+            <section class="certificate-section">
+                <div class="section-title-container">
+                    <h2 class="section-title">Web and Computer Programming Certificate</h2>
+                </div>
+                <div class="filters-container">
+                    <button class="filter-button filter-active" id="all">All Courses</button>
+                    <button class="filter-button" id="wdd">WDD Courses</button>
+                    <button class="filter-button" id="cse">CSE Courses</button>
+                    <div class="credits-container">
+                        <p class="credits">Credits required for current courses: <span id="creditsNumber"></span></p>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">&copy;<span id="currentYear"></span>  Leonardo Gameiro Correa</p>
+            <img src="images/brazil-flag.jpg" alt="brazil-flag" class="flag"> 
+        </div>
+        <div class="last-update-container">
+            <p class="last-update-text">Last update: <span id="lastUpdate"></span></p>
+        </div>
+    </footer>
+</body>
+</html>
