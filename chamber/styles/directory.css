@@ -30,6 +30,8 @@ body {
 }
 
 .chamber-name {
+    font-size: 36px;
+    font-weight: bold;
     color: #fafafa;
     margin: 0;
 }
@@ -88,9 +90,8 @@ main {
 }
 
 .companies-title {
-    margin: 0;
+    margin: 1rem 0 0 1rem;
     color: #0b1a35;
-    margin-bottom: 1rem;
 }
 
 /* grid  view */
