@@ -13,7 +13,8 @@ body {
 
 /* Header */
 .header {
-    background-color: #0b1a35;
+    background: #0B1A35;
+    background: linear-gradient(0deg, rgba(11, 26, 53, 1) 13%, rgba(12, 12, 26, 1) 100%);
     padding-top: 1rem;
 }
 
@@ -118,6 +119,11 @@ main {
     align-items: center;
 }
 
+.company-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
 .info {
     text-align: center;
 }
@@ -141,11 +147,12 @@ main {
 
 .company.list .data {
     display: flex;
-    flex-direction: row;
 }
 
-.company.list img {
-    width: 120px;
+
+
+.company.list .data .company-name {
+    margin: 1rem 0;
 }
 
 .company p {
@@ -240,6 +247,10 @@ footer {
 .instagram {
     width: 58px;
     margin-left: 0.5rem;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Small Screens CSS */

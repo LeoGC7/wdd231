@@ -5,7 +5,7 @@ const members = [
     "phone": "+55 11 91234-5678",
     "website": "https://www.technova.lorem.fake/placeholder",
     "image": "images/technova.jpg",
-    "membership": 2
+    "membership": 3
   },
 
   {
@@ -23,7 +23,7 @@ const members = [
     "phone": "+55 11 93456-7890",
     "website": "https://www.maximafinance.lorem.fake/placeholder",
     "image": "images/maxima.jpg",
-    "membership": 1
+    "membership": 3
   },
 
   {
@@ -41,7 +41,7 @@ const members = [
     "phone": "+55 11 92345-6789",
     "website": "https://www.neoconstruct.lorem.fake/placeholder",
     "image": "images/neoconstruct.jpg",
-    "membership": 3
+    "membership": 2
   },
 
   {
@@ -50,7 +50,7 @@ const members = [
     "phone": "+55 11 91098-7654",
     "website": "https://www.datamind.lorem.fake/placeholder",
     "image": "images/datamind.jpg",
-    "membership": 1
+    "membership": 2
   },
 
   {
@@ -77,7 +77,7 @@ const members = [
     "phone": "+55 11 93412-6789",
     "website": "https://www.veritascom.lorem.fake/placeholder",
     "image": "images/veritas.jpg",
-    "membership": 3
+    "membership": 1
   },
   
   {
@@ -86,6 +86,6 @@ const members = [
     "phone": "+55 11 90123-4567",
     "website": "https://www.gestaoagil.lorem.fake/placeholder",
     "image": "images/gestao.jpg",
-    "membership": 2
+    "membership": 1
   }
 ]

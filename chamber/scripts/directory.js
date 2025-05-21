@@ -55,6 +55,13 @@ async function loadCompanies() {
             image.alt = 'company-logo';
             image.classList.add('company-image');
             data.appendChild(image);
+        
+        // Name
+            const name = document.createElement('p');
+            name.classList.add('company-name');
+            name.classList.add('hidden');
+            name.textContent = company.name;
+            data.appendChild(name)
 
         // Info div
             const info = document.createElement('div');
@@ -99,6 +106,16 @@ async function loadCompanies() {
         companies.forEach(company => {
             company.classList.remove('list');
         });
+
+        const images = document.querySelectorAll('.company-image');
+        images.forEach(image => {
+            image.classList.remove('hidden');
+        })
+
+        const names = document.querySelectorAll('.company-name');
+        names.forEach(name => {
+            name.classList.add('hidden');
+        })
     });
 
     // List button
@@ -111,6 +128,16 @@ async function loadCompanies() {
         companies.forEach(company => {
             company.classList.add('list');
         });
+
+        const images = document.querySelectorAll('.company-image');
+        images.forEach(image => {
+            image.classList.add('hidden');
+        })
+
+        const names = document.querySelectorAll('.company-name');
+        names.forEach(name => {
+            name.classList.remove('hidden');
+        })
     })
 
 loadCompanies();
