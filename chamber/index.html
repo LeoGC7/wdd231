@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Leonardo Gameiro Correa">
-    <meta name="description" content="WDD 231 - Chamber Directory">
-    <meta property="og:title" content="Leonardo Correa - WDD 231 Chamber of Commerce Directory Page">
-    <meta property="og:description" content="Chamber Directory for the course WDD 231 from BYU-Idaho by Leonardo Correa">
+    <meta name="description" content="WDD 231 - Chamber Home Page">
+    <meta property="og:title" content="Leonardo Correa - WDD 231 Chamber of Commerce Home Page">
+    <meta property="og:description" content="Chamber Home Page for the course WDD 231 from BYU-Idaho by Leonardo Correa">
     <meta property="og:image" content="https://leogc7.github.io/wdd231/images/cover.jpg">
-    <meta property="og:url" content="https://leogc7.github.io/wdd231/chamber/directory.html">
-    <title>Chamber of Commerce Directory</title>
+    <meta property="og:url" content="https://leogc7.github.io/wdd231/chamber/index.html">
+    <title>Chamber of Commerce Home Page</title>
     <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico">
     <script defer src="scripts/members.js"></script>
+    <script defer src="scripts/events.js"></script>
     <script defer src="scripts/directory.js"></script>
+    <script defer src="scripts/index.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -41,15 +44,52 @@
 
     <!-- Main -->
     <main>
-        <h1 class="companies-title">Chamber directory:</h1>
-        <div class="display-buttons">
-            <button class="display" id="grid">Grid view</button>
-            <button class="display" id="list">List view</button>
+        <!-- Hero image -->
+        <div class="hero-image">
+            <div class="hero-text-container">
+                <h1 class="hero-title">Welcome</h1>
+                <p class="hero-text">Join now and be part of the best Chamber of Commerce in São Paulo</p>
+                <a href="#" class="hero-button">Join</a>
+            </div>
         </div>
-        
-        <!-- Companies list -->
+
+        <!-- Events -->
+        <div class="events-container">
+            <div class="events-title-container">
+                <h2 class="events-title">Upcoming Events:</h2>
+            </div>
+            <div class="events-list" id="eventsList">
+
+            </div>
+        </div>
+
+        <!-- Weather -->
+        <div class="weather-container">
+            <div class="weather-title-container">
+                <h2 class="weather-title">São Paulo Weather</h2>
+            </div>
+            <div class="weather-display">
+                <div class="live-weather">
+                    <p class="weather-subtitle">Weather now:</p>
+                    <div class="weather-info" id="weatherInfo">
+
+                    </div>
+                </div>
+                <div class="forecast">
+                    <p class="weather-subtitle">3-day forecast:</p>
+                    <div class="forecast-list" id="weatherForecastInfo">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Companies -->
         <div class="companies-container">
-            <div class="companies-list" id="companiesList">
+            <div class="companies-title-container">
+                <h2 class="companies-spotlight">Companies Spotlight</h2>
+            </div>
+            <div class="companies-div" id="companiesList">
 
             </div>
         </div>

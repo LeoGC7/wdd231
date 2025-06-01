@@ -1,0 +1,186 @@
+/* Main */
+main {
+    padding: 0;
+}
+
+.hero-image {
+    height: 20rem;
+    background-image: linear-gradient(rgba(92, 89, 255, 0.11), rgba(5, 8, 37, 0.801)), url("../images/sao-paulo-city.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-text-container {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 4rem;
+    color: #FAFAFA;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    color: #FAFAFA;
+}
+
+.hero-button {
+    background-color: #164692;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    color: #FAFAFA;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background-color: #133a79;
+}
+
+/* Events */
+.events-container {
+    padding: 0rem 2rem 2rem 2rem;
+}
+
+.events-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.event {
+    width: 170px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 1px 1px 10px 0px rgba(5, 8, 37, 0.11);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-image {
+    width: 160px;
+    border-radius: 0.3rem;
+}
+
+.event-title {
+    text-align: center;
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.event-time {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.event-speaker {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+/* Weather */
+
+/* Live Weather */
+.weather-container {
+    padding: 2rem;
+    background-color: #b7d3ff;
+}
+
+.weather-display {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.weather-subtitle {
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #133a79;
+}
+
+.icon-container {
+    text-align: center;
+}
+
+#weatherIcon {
+    width: 100px;
+}
+
+.weather-info {
+    width: 250px;
+    padding: 0.5rem 1rem;
+    background-color: #d3e3fc;
+    border-radius: 0.3rem;
+}
+
+.info {
+    font-weight: bold;
+}
+
+.info span {
+    font-weight: 400;
+}
+
+/* Fore Cast */
+.forecast-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.forecast-day {
+    padding: 0.5rem 1rem;
+    background-color: #d3e3fc;
+    border-radius: 0.3rem;
+    text-align: center;
+    width: 250px;
+}
+
+.forecast-day img {
+    width: 100px;
+}
+
+.forecast-date {
+    font-weight: bold;
+}
+
+/* Companies */
+.companies-div {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 772px){
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-text {
+        font-size: 1.3rem;
+    }
+
+    .weather-container {
+        padding: 1rem;
+    }
+
+    .company {
+        width: 270px;
+    }
+}
