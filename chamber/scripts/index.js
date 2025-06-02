@@ -45,7 +45,7 @@ async function loadWeatherNow() {
             desc.classList.add('info');
             desc.appendChild(document.createTextNode('Description: '));
             const descText = document.createElement('span');
-            descText.innerText = data.weather[0].desc;
+            descText.innerText = data.weather[0].description;
             desc.appendChild(descText);
             weatherDiv.appendChild(desc);
 
