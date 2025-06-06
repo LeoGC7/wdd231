@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonardo Gameiro Correa">
+    <meta name="description" content="WDD 231 - Chamber Join Page">
+    <meta property="og:title" content="Leonardo Correa - WDD 231 Chamber of Commerce Join Page">
+    <meta property="og:description" content="Chamber Join Page for the course WDD 231 from BYU-Idaho by Leonardo Correa">
+    <meta property="og:image" content="https://leogc7.github.io/wdd231/images/cover.jpg">
+    <meta property="og:url" content="https://leogc7.github.io/wdd231/chamber/index.html">
+    <title>Chamber of Commerce Join Page</title>
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/join.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+    <script defer src="scripts/directory.js"></script>
+    <script defer src="scripts/join.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="images/chamber-logo.png" alt="chamber-logo" class="logo-image">
+                <p class="chamber-name">São Paulo Cornerstone Chamber</p>
+            </div>
+
+            <!-- Nav bar -->
+             <nav class="nav-bar">
+                <div class="nav-items">
+                    <a href="index.html" class="nav-item">Home</a>
+                    <a href="#" class="nav-item">Discover</a>
+                    <a href="directory.html" class="nav-item">Directory</a>
+                    <a href="join.html" class="nav-item">Join</a>
+                </div>
+             </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <h1 class="join-title">Join Our Chamber</h1>
+        <div class="main-content">
+            <!-- Form Element -->
+            <form action="thankyou.html" method="GET" class="join-form">
+                <div class="applicant-info-container">
+                    <p class="applicant-info-title">Applicant Information</p>
+                    <div class="input-container">
+                        <!-- First Name -->
+                        <div class="input-div">
+                            <label class="form-label" for="fname">First Name<span>*</span></label>
+                            <input type="text" id="fname" name="fname" class="form-input" title="Your first name" autocomplete="on" required>
+                        </div>
+                        
+                        <!-- Last Name -->
+                        <div class="input-div">
+                            <label class="form-label" for="lname">Last Name<span>*</span></label>
+                            <input type="text" id="lname" name="lname" class="form-input" title="Your last name" autocomplete="on" required>
+                        </div>
+                        
+                        <!-- Organizational Title -->
+                        <div class="input-div">
+                            <label class="form-label" for="orgTitle">Organizational Title</label>
+                            <input type="text" id="orgTitle" name="orgTitle" class="form-input" title="Your organization title (7 characters minimum)" autocomplete="organization-title" pattern="[A-za-z\s-]{7,}">
+                        </div>
+                        
+                        <!-- Email Address -->
+                        <div class="input-div">
+                            <label class="form-label" for="email">Email Address<span>*</span></label>
+                            <input type="text" id="email" name="email" class="form-input" title="Your email" autocomplete="on" placeholder="example@email.com" required>
+                        </div>
+                        
+                        <!-- Mobile Phone -->
+                        <div class="input-div">
+                            <label class="form-label" for="phone">Mobile Phone<span>*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-input" title="Your mobile phone number" autocomplete="on" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bussiness Information -->
+                <div class="applicant-info-container">
+                    <p class="applicant-info-title">Business Information</p>
+                    <div class="input-container">
+                        <!-- First Name -->
+                        <div class="input-div">
+                            <label class="form-label" for="businessName">Business/Organization's Name<span>*</span></label>
+                            <input type="text" id="bussinesName" name="businessName" class="form-input" title="Your business/organization name" autocomplete="organization" required>
+                        </div>
+                        
+                        <!-- Last Name -->
+                        <div class="input-div">
+                            <label class="form-label" for="businessDesc">Business Description<span>*</span></label>
+                            <textarea id="businessDesc" name="businessDesc" class="businessDesc" title="Your business description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membership Level -->
+                <div class="applicant-info-container">
+                    <p class="applicant-info-title">Membership Level*</p>
+                    <div class="input-container">
+                        <div class="membership-option">
+                            <input type="radio" class="option" id="nonprofit" value="NP (Non-Profit) Membership" name="membershipLevel" required><label for="nonprofit">NP (Non-Profit) Membership</label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" class="option" id="bronze" value="Bronze Membership" name="membershipLevel"><label for="bronze">Bronze Membership</label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" class="option" id="silver" value="Silver Membership" name="membershipLevel"><label for="silver">Silver Membership</label>
+                        </div>
+                        <div class="membership-option">
+                            <input type="radio" class="option" id="gold" value="Gold Membership" name="membershipLevel"><label for="gold">Gold Membership</label>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" id="formTimestamp" name="formTimestamp">
+
+                <button class="form-button">Join the Chamber</button>
+            </form>
+            
+            <!-- Membership Plans -->
+            <div class="membership-plans">
+                <!-- Non Profit -->
+                <div class="plan pnonprofit">
+                    <p class="plan-title">NP Membership</p>
+                    <p class="plan-desc">For non-profit organizations. No membership fee</p>
+                    <button class="plan-link" id="nonprofitButton" data-modal-target="#nonprofitModal">Learn More</button>
+                </div>
+
+                <!-- Bronze -->
+                <div class="plan pbronze">
+                    <p class="plan-title">Bronze Membership</p>
+                    <p class="plan-desc">Perfect for small business and startups</p>
+                    <button class="plan-link" id="bronzeButton" data-modal-target="#bronzeModal">Learn More</button>
+                </div>
+
+                <!-- Silver -->
+                <div class="plan psilver">
+                    <p class="plan-title">Silver Membership</p>
+                    <p class="plan-desc">Enhaced benefits for growing business</p>
+                    <button class="plan-link" id="silverButton" data-modal-target="#silverModal">Learn More</button>
+                </div>
+
+                <!-- Gold -->
+                <div class="plan pgold">
+                    <p class="plan-title">Gold Membership</p>
+                    <p class="plan-desc">Premium benefits for established organizations</p>
+                    <button class="plan-link" id="goldButton" data-modal-target="#goldModal">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Non Profit -->
+    <dialog id="nonprofitModal" class="modal">
+        <span class="close">&times;</span>
+        <p class="plan-title">NP Memberhsip <span>Free</span></p>
+        <ul class="plan-benefits">
+            <li class="benefit">- Stay informed with our monthly digital newsletter featuring community news and upcoming events.</li>
+            <li class="benefit">- Access to general networking events to connect with local businesses and leaders.</li>
+        </ul>
+    </dialog>
+
+    <!-- Bronze -->
+    <dialog id="bronzeModal" class="modal">
+        <span class="close">&times;</span>
+        <p class="plan-title">Bronze Memberhsip <span>$500/year</span></p>
+        <ul class="plan-benefits">
+            <li class="plus">Includes all Non-Profit Membership benefits, plus:</li>
+            <li class="benefit">- A special "Welcome New Member" shout-out on our social media channels (LinkedIn and Instagram).</li>
+            <li class="benefit">- Receive one complimentary tickets to our largest networking event of the year.</li>
+        </ul>
+    </dialog>
+
+    <!-- Silver -->
+    <dialog id="silverModal" class="modal">
+        <span class="close">&times;</span>
+        <p class="plan-title">Silver Membership <span>$1,000/year</span></p>
+        <ul class="plan-benefits">
+            <li class="plus">Includes all Bronze Membership benefits, plus:</li>
+            <li class="benefit">- Your organization's name and contact information listed in our directory.</li>
+            <li class="benefit">- One dedicated feature of your business in our monthly email newsletter annually.</li>
+            <li class="benefit">- Receive a 10% discount on all event sponsorship packages.</li>
+        </ul>
+    </dialog>
+
+    <!-- Gold -->
+    <dialog id="goldModal" class="modal">
+        <span class="close">&times;</span>
+        <p class="plan-title">Gold Membership <span>$2,000/year</span></p>
+        <ul class="plan-benefits">
+            <li class="plus">Includes all Silver Membership benefits, plus:</li>
+            <li class="benefit">- Chance to host a "Business After Hours" networking event at our location, drawing members directly to you.</li>
+            <li class="benefit">- Receive four complimentary tickets to all of our major events, including the Annual Gala and Economic Summit.</li>
+            <li class="benefit">- Opportunity for a company leader to be a panelist or speaker at a relevant Chamber event, positioning you as an industry expert.</li>
+        </ul>
+    </dialog>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="left-container">
+            <p class="chamber-name-footer">São Paulo Cornerstone Chamber</p>
+            <p class="chamber-info">Av. Prof. Luiz Ignácio de Anhaia Mello, 3949</p>
+            <p class="chamber-info">São Paulo, SP - Brazil</p>
+            <p class="chamber-info">lcorrea@byupathway.edu</p>
+            <p class="chamber-info">+55 43 93505-0106</p>
+        </div>
+        <div class="middle-container">
+            <a href="" class="link"><img src="images/youtube.png" alt="youtube-link" class="youtube"></a>
+            <a href="" class="link"><img src="images/facebook.png" alt="facebook-link" class="facebook"></a>
+            <a href="" class="link"><img src="images/instagram.png" alt="instagram-link" class="instagram"></a>
+        </div>
+        <div class="right-container">
+            <p class="project-info">WDD231 Class Project</p>
+            <p class="footer-text">&copy;<span id="currentYear"></span>  Leonardo Gameiro Correa</p>
+            <p class="last-update-text">Last update: <span id="lastUpdate"></span></p>
+        </div>
+    </footer>
+</body>
+</html>

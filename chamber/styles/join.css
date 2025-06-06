@@ -1,0 +1,218 @@
+.join-title {
+    text-align: center;
+    color: #0b1a35;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Form */
+.join-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 50rem;
+    padding: 2rem 1.5rem;
+    background-color: white;
+    border-radius: 0.6rem;
+    box-shadow: 1px 1px 10px 0px rgba(26, 26, 26, 0.1);
+    gap: 1.5rem;
+}
+
+.applicant-info-container {
+    border: 1px solid lightgrey;
+    padding: 1rem;
+    border-radius: 0.3rem;;
+    position: relative;
+}
+
+.applicant-info-title {
+    margin: 0;
+    position: absolute;
+    top: -0.6rem;
+    background-color: white;
+    padding: 0rem 0.7rem;
+    color:#0b1a35;
+    font-weight: bold;
+}
+
+.input-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:  1rem;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label span {
+    color:#132c58;
+}
+
+.form-input {
+    font-size: 1rem;
+    height: 1.8rem;
+    padding-left: 0.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid lightgrey;
+}
+
+.form-input:focus {
+    border: 1px solid #0b1a35;
+    outline: none;
+}
+
+.businessDesc {
+    font-size: 1.2rem;
+    height: 2rem;
+    padding-left: 0.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid lightgrey;
+    resize: vertical;
+    min-height: 5rem;
+}
+
+.businessDesc:focus {
+    border: 1px solid #0b1a35;
+    outline: none;
+}
+
+.membership-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.option {
+    margin: 0;
+}
+
+.form-button {
+    background-color: #0b1a35;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.7rem;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #102449;
+}
+
+/* Membership */
+.membership-plans {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.plan {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.3rem;
+
+    opacity: 0;
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+.pnonprofit {
+    border-left: 5px solid #0b1a35;
+    animation-delay: 0.1s;
+}
+
+.pbronze {
+    border-left: 5px solid #8f6815;
+    animation-delay: 0.2s;
+}
+
+.psilver {
+    border-left: 5px solid #b1bccf;
+    animation-delay: 0.3s;
+}
+
+.pgold {
+    border-left: 5px solid #eccc12;
+    animation-delay: 0.4s;
+}
+
+.plan-title {
+    margin: 0;
+    color:#0b1a35;
+    font-weight: bold;
+}
+
+.plan-desc {
+    font-size: 0.9rem;
+}
+
+.plan-link {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    font-weight: bold;
+    color:#0b1a35;
+    cursor: pointer;
+    margin-top: 1.2rem;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    width: 500px;
+    background-color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+::backdrop {
+    background-color: #0b1a35;
+    opacity: 0.5;
+}
+
+.plan-benefits {
+    padding: 0;
+    list-style: none;
+}
+
+.plus {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.benefit {
+    margin-bottom: 1rem;
+}
+
+.close {
+    color: #0b1a35;
+    display: flex;
+    justify-self: end;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.plan-title span {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    } to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

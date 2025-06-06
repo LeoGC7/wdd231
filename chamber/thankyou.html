@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Leonardo Gameiro Correa">
-    <meta name="description" content="WDD 231 - Chamber Directory">
-    <meta property="og:title" content="Leonardo Correa - WDD 231 Chamber of Commerce Directory Page">
-    <meta property="og:description" content="Chamber Directory for the course WDD 231 from BYU-Idaho by Leonardo Correa">
-    <meta property="og:image" content="https://leogc7.github.io/wdd231/images/cover.jpg">
-    <meta property="og:url" content="https://leogc7.github.io/wdd231/chamber/directory.html">
-    <title>Chamber of Commerce Directory</title>
-    <link rel="stylesheet" href="styles/directory.css">
+    <title>Submission Successful</title>
+    <link rel="stylesheet" href="styles/directory.css"> 
+    <link rel="stylesheet" href="styles/thankyou.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico">
-    <script defer src="scripts/members.js"></script>
+    <script defer src="scripts/thankyou.js"></script>
     <script defer src="scripts/directory.js"></script>
 </head>
 <body>
@@ -26,32 +22,31 @@
                 <img src="images/chamber-logo.png" alt="chamber-logo" class="logo-image">
                 <p class="chamber-name">São Paulo Cornerstone Chamber</p>
             </div>
-
-            <!-- Nav bar -->
-             <nav class="nav-bar">
+            <nav class="nav-bar">
                 <div class="nav-items">
                     <a href="index.html" class="nav-item">Home</a>
                     <a href="#" class="nav-item">Discover</a>
                     <a href="directory.html" class="nav-item">Directory</a>
                     <a href="join.html" class="nav-item">Join</a>
                 </div>
-             </nav>
+            </nav>
         </div>
     </header>
 
     <!-- Main -->
     <main>
-        <h1 class="companies-title">Chamber directory:</h1>
-        <div class="display-buttons">
-            <button class="display" id="grid">Grid view</button>
-            <button class="display" id="list">List view</button>
-        </div>
-        
-        <!-- Companies list -->
-        <div class="companies-container">
-            <div class="companies-list" id="companiesList">
+        <div class="confirmation-container">
+            <h1>Thank You for Joining!</h1>
+            <p>Your application has been successfully submitted. Please review your information below.</p>
+            
+            <div class="submission-summary">
+                <h2>Application Summary</h2>
+                <div id="formDataDisplay">
 
+                </div>
             </div>
+
+            <a href="index.html" class="home-button">Return to Homepage</a>
         </div>
     </main>
     
@@ -65,9 +60,9 @@
             <p class="chamber-info">+55 43 93505-0106</p>
         </div>
         <div class="middle-container">
-            <a href="" class="link"><img src="images/youtube.png" alt="youtube-link" class="youtube"></a>
-            <a href="" class="link"><img src="images/facebook.png" alt="facebook-link" class="facebook"></a>
-            <a href="" class="link"><img src="images/instagram.png" alt="instagram-link" class="instagram"></a>
+            <a href="#" class="link"><img src="images/youtube.png" alt="youtube-link" class="youtube"></a>
+            <a href="#" class="link"><img src="images/facebook.png" alt="facebook-link" class="facebook"></a>
+            <a href="#" class="link"><img src="images/instagram.png" alt="instagram-link" class="instagram"></a>
         </div>
         <div class="right-container">
             <p class="project-info">WDD231 Class Project</p>
