@@ -1,0 +1,120 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #FAFAFA;
+    margin: 0;
+    padding: 0;;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #001429;
+    margin-bottom: 1rem;
+}
+
+.plan-title {
+    color: #FAFAFA;
+    margin: 0;
+}
+
+.plan-container {
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    width: 50%;
+    box-shadow: 0px 0px 10px 0px rgba(220,220,220,0.7);
+}
+
+.card {
+    padding: 2.5rem 0 2rem 0;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.card-title {
+    margin: 0;
+    padding-bottom: 0.7rem;
+    color: #2693FF;
+    border-bottom: 0.15rem solid #b1d3ff;
+}
+
+.card p, .card li {
+    color: rgb(66, 66, 66);
+}
+
+#site-name {
+    color: #000A14;
+    font-weight: 700;
+}
+
+.card-description, .list {
+    line-height: 1.5rem;
+}
+
+.list-item {
+    margin-bottom: 0.5rem;
+}
+
+.color-code {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+}
+
+#header {
+    background-color: #001429;
+    color: #fafafa;
+}
+
+#text {
+    background-color: #000A14;
+    color: #fafafa;
+}
+
+#title {
+    background-color: #2693FF;
+    color: #000A14;
+}
+
+#background {
+    background-color: #fafafa;
+    color: #000A14;
+}
+
+#highlights {
+    background-color: #ffad05;
+    color: #000A14;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.wireframes-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.desktop-img {
+    width: 550px
+}
+
+.mobile-img {
+    width: 200px;
+}
+
+footer {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #001429;
+    margin-top: 1rem;
+    color: #fafafa;
+}
