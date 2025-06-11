@@ -74,7 +74,7 @@ header {
 }
 
 #text {
-    background-color: #000A14;
+    background-color: #424242;
     color: #fafafa;
 }
 
@@ -85,11 +85,6 @@ header {
 
 #background {
     background-color: #fafafa;
-    color: #000A14;
-}
-
-#highlights {
-    background-color: #ffad05;
     color: #000A14;
 }
 
