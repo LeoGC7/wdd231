@@ -21,7 +21,7 @@ main {
     padding: 1rem;
     background-color: rgb(143, 182, 255);
     border-radius: 0.3rem;
-    color: rgb(32, 60, 112);
+    color: #101e38;
     font-weight: bold;
 }
 
@@ -34,6 +34,7 @@ main {
 }
 
 .info-card-subtitle {
+    font-size: 1.2rem;
     padding-top: 1.5rem;
 }
 
@@ -69,16 +70,20 @@ main {
 .card-figure {
     margin: 0;
     height: 200px;
-    background-image: url('/chamber/images/ipiranga.webp');
-    background-position: center;
-    background-size: 100%;
     border-top-left-radius: 0.7rem;
     border-top-right-radius: 0.7rem;
-    transition: background-size 0.3s ease;
+    overflow: hidden;
 }
 
-.card-figure:hover {
-    background-size: 110%;
+.card-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-figure:hover img {
+    transform: scale(1.1);
 }
 
 .card-title {
@@ -95,7 +100,7 @@ main {
 
 .card-address {
     font-style: normal;
-    color: grey;
+    color: #545454;
 }
 
 .card-button {

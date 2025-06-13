@@ -49,15 +49,21 @@ async function loadLocations() {
 function DisplayCards(locations) {
     locations.forEach(location => {
         const card = document.createElement('div');
-        card.classList.add('card')
+        card.classList.add('card');
 
         const figure = document.createElement('figure');
-        figure.style.backgroundImage = `url('${location.image}')`;
         figure.classList.add('card-figure');
+        
+        const img = document.createElement('img');
+        img.src = location.image;
+        img.alt = location.name;
+        img.loading = 'lazy';
+        figure.appendChild(img);
+        
         card.appendChild(figure);
 
         const cardInfoDiv = document.createElement('div');
-        cardInfoDiv.classList.add('card-info')
+        cardInfoDiv.classList.add('card-info');
         card.appendChild(cardInfoDiv);
 
         const cardTitle = document.createElement('h2');
