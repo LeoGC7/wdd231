@@ -29,6 +29,10 @@ main {
     margin: 0;
 }
 
+.info-card-title {
+    font-size: 1.5rem;
+}
+
 .info-card-subtitle {
     padding-top: 1.5rem;
 }
