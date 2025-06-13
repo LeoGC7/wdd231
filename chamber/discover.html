@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Leonardo Gameiro Correa">
-    <title>Submission Successful</title>
-    <link rel="stylesheet" href="styles/directory.css"> 
-    <link rel="stylesheet" href="styles/thankyou.css">
+    <meta name="description" content="WDD 231 - Chamber Discover Page">
+    <meta property="og:title" content="Leonardo Correa - WDD 231 Chamber of Commerce Discover Page">
+    <meta property="og:description" content="Chamber Discover Page for the course WDD 231 from BYU-Idaho by Leonardo Correa">
+    <meta property="og:image" content="https://leogc7.github.io/wdd231/images/cover.jpg">
+    <meta property="og:url" content="https://leogc7.github.io/wdd231/chamber/discover.html">
+    <title>Chamber of Commerce - Discover São Paulo</title>
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/discover.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico">
-    <script defer src="scripts/thankyou.js"></script>
+    <script defer src="scripts/discover.js"></script>
     <script defer src="scripts/directory.js"></script>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header">
             <div class="logo">
@@ -33,31 +37,42 @@
         </div>
     </header>
 
-    <!-- Main -->
     <main>
-        <div class="confirmation-container">
-            <h1>Thank You for Joining!</h1>
-            <p>Your application has been successfully submitted. Please review your information below.</p>
-            
-            <div class="submission-summary">
-                <h2>Application Summary</h2>
-                <div id="formDataDisplay">
-
+        <div class="info-card sidebar">
+            <h2 class="info-card-title">Discover São Paulo</h2>
+            <div id="message">
+                
+            </div>
+            <h3 class="info-card-subtitle">Demographics</h3>
+            <div class="demographics">
+                <div class="data-item">
+                    <p class="data-title">Population: </p>
+                    <p class="data-info">Approximately 12.3 million</p>
+                </div>
+                <div class="data-item">
+                    <p class="data-title">Area: </p>
+                    <p class="data-info">1,521km²</p>
+                </div>
+                <div class="data-item">
+                    <p class="data-title">Region:</p>
+                    <p class="data-info">Southeast Brazil</p>
+                </div>
+                <div class="data-item">
+                    <p class="data-title">Key Industries:</p>
+                    <p class="data-info">Finance, Technology, Arts</p>
                 </div>
             </div>
+        </div>
 
-            <a href="index.html" class="home-button">Return to Homepage</a>
+        <div class="cards-container" id="cardsContainer">
         </div>
     </main>
     
-    <!-- Footer -->
     <footer>
         <div class="left-container">
             <p class="chamber-name-footer">São Paulo Cornerstone Chamber</p>
             <p class="chamber-info">Av. Prof. Luiz Ignácio de Anhaia Mello, 3949</p>
             <p class="chamber-info">São Paulo, SP - Brazil</p>
-            <p class="chamber-info">lcorrea@byupathway.edu</p>
-            <p class="chamber-info">+55 43 93505-0106</p>
         </div>
         <div class="middle-container">
             <a href="#" class="link"><img src="images/youtube.png" alt="youtube-link" class="youtube"></a>
@@ -66,7 +81,7 @@
         </div>
         <div class="right-container">
             <p class="project-info">WDD231 Class Project</p>
-            <p class="footer-text">&copy;<span id="currentYear"></span>  Leonardo Gameiro Correa</p>
+            <p class="footer-text">&copy;<span id="currentYear"></span> Leonardo Gameiro Correa</p>
             <p class="last-update-text">Last update: <span id="lastUpdate"></span></p>
         </div>
     </footer>

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Ibirapuera Park",
+    "address": "Av. Pedro Álvares Cabral - Vila Mariana, São Paulo - SP, 04094-050",
+    "description": "An urban oasis, Ibirapuera Park offers a vast green space with museums, a planetarium, and jogging trails, perfect for leisure and cultural activities.",
+    "image": "images/ibirapuera.webp"
+  },
+  {
+    "name": "São Paulo Museum of Art (MASP)",
+    "address": "Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200",
+    "description": "Famous for its modern architectural design, MASP houses a remarkable collection of European and Brazilian art, suspended in glass easels.",
+    "image": "images/masp.webp"
+  },
+  {
+    "name": "Municipal Market of São Paulo (Mercadão)",
+    "address": "R. da Cantareira, 306 - Centro Histórico, São Paulo - SP, 01024-900",
+    "description": "A vibrant market known for its stunning stained glass windows and a wide array of fresh produce, and the iconic mortadella sandwich.",
+    "image": "images/mercadao.webp"
+  },
+  {
+    "name": "Pinacoteca do Estado de São Paulo",
+    "address": "Praça da Luz, 2 - Luz, São Paulo - SP, 01120-010",
+    "description": "The city's oldest art museum, the Pinacoteca is dedicated to Brazilian art from the 19th century to the present day.",
+    "image": "images/pinacoteca.webp"
+  },
+  {
+    "name": "Beco do Batman (Batman's Alley)",
+    "address": "R. Medeiros de Albuquerque - Jardim das Bandeiras, São Paulo - SP",
+    "description": "An open-air gallery of urban art, this alley is a must-see for its ever-changing, colorful, and dense display of graffiti and murals.",
+    "image": "images/batman.webp"
+  },
+  {
+    "name": "Farol Santander",
+    "address": "R. João Brícola, 24 - Centro Histórico, São Paulo - SP, 01014-900",
+    "description": "An iconic skyscraper inspired by the Empire State Building, offering a breathtaking panoramic view of the city from its observation deck.",
+    "image": "images/santander.webp"
+  },
+  {
+    "name": "Liberdade (Japantown)",
+    "address": "Av. da Liberdade - Liberdade, São Paulo - SP",
+    "description": "The heart of the Japanese community in São Paulo, featuring distinct oriental architecture, street lamps, and Japanese shops.",
+    "image": "images/liberdade.webp"
+  },
+  {
+    "name": "Museu do Ipiranga",
+    "address": "R. dos Patriotas, 20 - Ipiranga, São Paulo - SP, 04207-030",
+    "description": "Housed in a monumental palace, this museum is dedicated to the history of Brazil, with a special focus on the country's independence.",
+    "image": "images/ipiranga.webp"
+  }
+]

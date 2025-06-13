@@ -1,0 +1,144 @@
+main {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:
+        'sidebar cards';
+    align-items: start;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.info-card {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+}
+
+#message {
+    padding: 1rem;
+    background-color: rgb(143, 182, 255);
+    border-radius: 0.3rem;
+    color: rgb(32, 60, 112);
+    font-weight: bold;
+}
+
+.message-sample {
+    margin: 0;
+}
+
+.info-card-subtitle {
+    padding-top: 1.5rem;
+}
+
+.data-item {
+    border-top: 0.15rem solid lightgrey;
+}
+
+.data-title {
+    font-weight: bold;
+}
+
+.data-info {
+    font-size: 0.9rem;
+    margin-left: 1.2rem;
+    padding-left: 0.3rem;
+    border-left: 0.2rem solid rgb(143, 182, 255);
+}
+
+.cards-container {
+    grid-area: cards;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    background-color: white;
+    width: 450px;
+    box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+    border-radius: 0.7rem;
+}
+
+.card-figure {
+    margin: 0;
+    height: 200px;
+    background-image: url('/chamber/images/ipiranga.webp');
+    background-position: center;
+    background-size: 100%;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+    transition: background-size 0.3s ease;
+}
+
+.card-figure:hover {
+    background-size: 110%;
+}
+
+.card-title {
+    margin-top: 0;
+    color:#11264d;
+}
+
+.card-info {
+    padding: 1rem;
+    background-color: white;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+}
+
+.card-address {
+    font-style: normal;
+    color: grey;
+}
+
+.card-button {
+    border: none;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    background-color: #0b1a35;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    background-color: #11264d;
+}
+
+@media screen and (max-width: 1650px) {
+    .cards-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .card {
+        width: 290px;
+    }
+
+    .card-figure {
+        background-size: 105%;
+    }
+
+    main {
+        grid-template-areas:
+            'sidebar' 'cards';
+    }
+
+    .card-figure:hover {
+        background-size: 105%;
+    }
+}
