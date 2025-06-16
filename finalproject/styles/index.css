@@ -1,0 +1,382 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #01162c;
+    padding: 0.5rem 3rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+}
+
+.header-title {
+    font-size: 1.7rem;
+    color: #FAFAFA;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Nav Bar */
+.mobile-nav {
+    display: none;
+}
+
+.mobile-items {
+    display: none;
+}
+
+.nav-items {
+    display: flex;
+    gap: 5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #FAFAFA;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-item.active {
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    transform: scale(1.05);
+}
+
+/* Main */
+
+/* Search Bar */
+.search-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    background: #2770B9;
+background: linear-gradient(130deg, rgba(39, 112, 185, 1) 35%, rgba(45, 179, 194, 1) 87%);
+    padding: 0 0 2rem 0;
+}
+
+.search-title {
+    color: white;
+}
+
+.search-bar {
+    width: calc(50%);
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 1.1rem;
+    height: 1.7rem;
+    padding-left: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-img {
+    width: 25px;
+}
+
+.weather-container {
+    display: flex;
+    justify-content: center;
+    gap: 20rem;
+}
+
+.weather-live {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-title {
+    text-align: center;
+    color: #2770B9;
+}
+
+.weather-card {
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+    border-radius: 0.5rem;
+}
+
+.card-title {
+    text-align: center;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.7rem;
+}
+
+.w-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #92c7fc;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 0.7rem;
+}
+
+.weather-desc {
+    margin: 0;
+}
+
+.weather-info {
+    padding: 0 3rem 0 1rem;
+}
+
+.weather-info-item {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.info-title {
+    color: #212529;
+    font-weight: bold;
+    border-left: 0.3rem solid #57a3ee;
+    padding-left: 0.3rem;
+}
+
+.info-text {
+    color: #212529;
+}
+
+.forecast-cards {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+.footer-items {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000A14;
+    color: white;
+    padding: 1rem 2rem 0 2rem;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+}
+
+.f-item-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.15rem solid #042447;
+}
+
+.f-item-text, .contact-text {
+    font-size: 0.8rem;
+    color: #c9c9c9;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.links-container a:hover {
+    text-decoration: underline;
+}
+
+.contact-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.contact-img {
+    width: 18px;
+}
+
+.copyright {
+    text-align: center;
+    background-color: #01162c;
+    padding: 0.5rem;
+}
+
+.copy-text {
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* Mobile CSS */
+@media screen and (max-width: 770px) {
+    /* Header */
+    header {
+        padding: 0.2rem 0.5rem;
+    }
+
+    .header-content {
+        display: flex;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    .logo-container {
+        gap: 0.5rem;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    .header-title {
+        font-size: 1.3rem;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .mobile-button {
+        background-color: transparent;
+        border: none;
+        border-radius: 0.3rem;
+        color: #fafafa;
+        padding: 0.2rem 0.5rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .mobile-items {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        right: 0;
+        top: 3.5rem;
+        padding: 0.3rem 1rem;
+        background-color: #01162c;
+        border-bottom-left-radius: 0.5rem;
+        box-shadow: 0px 5px 5px 0px rgba(27, 27, 27, 0.3);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Main */
+    .search-title {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .search-bar {
+        width: 85%;
+    }
+
+    .weather-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .forecast-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Footer */
+    .footer-items {
+        display: flex;
+        gap: 1.5rem
+    }
+
+    .footer-item {
+        width: 200px;
+    }
+
+    .f-item-title {
+        font-size: 0.8rem;
+    }
+
+    .f-item-text, .contact-text {
+        font-size: 0.7rem;
+    }
+
+    #footerDesc {
+        display: none;
+    }
+
+    .contact-item {
+        margin-bottom: 0.5rem;
+    }
+
+    .links-container {
+        gap: 0.5rem;
+    }
+
+    .copy-text {
+        font-size: 0.7rem;
+    }
+}
