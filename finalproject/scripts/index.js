@@ -18,6 +18,8 @@ const searchButton = document.querySelector('.search-button');
                 const city = document.getElementById('city');
                 city.innerText = data.name;
 
+                localStorage.setItem('weatherLocation', JSON.stringify({lat: lat, lon: lon, name: data.name}))
+
             // Icon
                 const image = document.getElementById('weatherImg');
                 image.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
@@ -29,6 +31,15 @@ const searchButton = document.querySelector('.search-button');
             // Temperature
                 const temperature = document.getElementById('temperature');
                 temperature.innerText = `${Math.round(data.main.temp)}°C`;
+
+            // Rain
+                const rain = document.getElementById('rain');
+                if (data.rain && data.rain['1h']) {
+                    rain.innerText = `${data.rain['1h']} mm`;
+                } else {
+                    // If no rain data, display 0
+                    rain.innerText = '0 mm';
+                }
 
             // Feels Like
                 const feelsLike = document.getElementById('feelsLike');
@@ -83,6 +94,15 @@ const searchButton = document.querySelector('.search-button');
                     date.innerText = `${month}/${day}`;
                     forecastCard.appendChild(date);
 
+                // Temperature
+                    const tempItem = document.createElement('div');
+                    tempItem.classList.add('weather-info-item', 'tempContainer');
+                    const tempValue = document.createElement('p');
+                    tempValue.classList.add('info-text', 'temperature');
+                    tempValue.innerText = `${Math.round(forecast.main.temp)}°C`
+                    tempItem.appendChild(tempValue);
+                    forecastCard.appendChild(tempItem);
+
                 // Icon
                     const figure = document.createElement('figure');
                     figure.classList.add('w-image-container');
@@ -101,25 +121,28 @@ const searchButton = document.querySelector('.search-button');
                     figure.appendChild(description);
                     forecastCard.appendChild(figure);
 
-                // Temperature
+                // Wetaher Info Card
                     const weatherInfo = document.createElement('div');
-                    weatherInfo.classList.add('weather-info');
+                    weatherInfo.classList.add('weather-info')
 
-                    const tempItem = document.createElement('div');
-                    tempItem.classList.add('weather-info-item');
+                // Rain
+                    const rainItem = document.createElement('div');
+                    rainItem.classList.add('weather-info-item');
+                    const rainTitle = document.createElement('p');
+                    rainTitle.classList.add('info-title');
+                    rainTitle.innerText = 'Rain:';
+                    const rainValue = document.createElement('p');
+                    rainValue.classList.add('info-text');
+                    if (forecast.rainValue && forecast.rain['1h']) {
+                        rainValue.innerText = `${forecast.rain['1h']} mm`;
+                    } else {
+                        // If no rain data, display 0
+                        rainValue.innerText = '0 mm';
+                    }
 
-                    const tempTitle = document.createElement('p');
-                    tempTitle.classList.add('info-title');
-                    tempTitle.innerText = 'Temperature:';
-
-                    const tempValue = document.createElement('p');
-                    tempValue.classList.add('info-text');
-                    tempValue.innerText = `${Math.round(forecast.main.temp)}°C`; // Rounded for consistency
-
-                    tempItem.appendChild(tempTitle);
-                    tempItem.appendChild(tempValue);
-                    weatherInfo.appendChild(tempItem);
-                    forecastCard.appendChild(weatherInfo);
+                    rainItem.appendChild(rainTitle);
+                    rainItem.appendChild(rainValue);
+                    weatherInfo.appendChild(rainItem);
 
                 // Feels Like
                     const feelsLikeItem = document.createElement('div');
@@ -129,7 +152,7 @@ const searchButton = document.querySelector('.search-button');
                     feelsLikeTitle.innerText = 'Feels Like:';
                     const feelsLikeValue = document.createElement('p');
                     feelsLikeValue.classList.add('info-text');
-                    feelsLikeValue.innerText = `${Math.round(forecast.main.feels_like)}°C`;
+                    feelsLikeValue.innerText = `${forecast.main.feels_like}°C`;
                     feelsLikeItem.appendChild(feelsLikeTitle);
                     feelsLikeItem.appendChild(feelsLikeValue);
                     weatherInfo.appendChild(feelsLikeItem);
@@ -159,6 +182,8 @@ const searchButton = document.querySelector('.search-button');
                     cloudsItem.appendChild(cloudsTitle);
                     cloudsItem.appendChild(cloudsValue);
                     weatherInfo.appendChild(cloudsItem);
+
+                    forecastCard.appendChild(weatherInfo);
 
                 forecastList.appendChild(forecastCard);
             });
@@ -200,6 +225,8 @@ const searchButton = document.querySelector('.search-button');
             }
 
             const {lat, lon} = geoData[0];
+
+            localStorage.setItem('weatherLocation', JSON.stringify({ lat, lon, name }));
 
             loadWeatherNow(lat, lon);
             loadWeatherForecast(lat, lon);

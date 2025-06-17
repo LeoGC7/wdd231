@@ -1,0 +1,96 @@
+.search-result-container {
+    text-align: center;
+}
+
+.search-result {
+    color:#2770B9;
+}
+
+.forecast-display {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.forecast-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+    width: 90%;
+    max-width: 1000px;
+    box-sizing: border-box;
+}
+
+.forecast-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #2770B9;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.15rem solid #2770b962;
+}
+
+.weather-cards {
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.card {
+    width: 170px;
+    background-color: #f1f1f1;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgb(185, 185, 185);
+    flex-shrink: 0;
+}
+
+.card-hour {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(63, 63, 63);
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.card-temperature {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.8rem;
+}
+
+.card-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #92c7fc;
+    padding: 1rem 0;
+}
+
+.card-description {
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.forecast-info-item {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.forecast-info-title {
+    color: #212529;
+    font-weight: bold;
+    border-left: 0.3rem solid #57a3ee;
+    padding-left: 0.3rem;
+    margin-left: 0.5rem;
+}
+
+.forecast-info-text {
+    color: #212529;
+}
