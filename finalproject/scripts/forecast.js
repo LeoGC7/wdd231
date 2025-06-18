@@ -4,14 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('addressSearch');
     const searchButton = document.querySelector('.search-button');
 
-    /**
-     * Fetches the 5-day/3-hour forecast from the OpenWeatherMap API.
-     * @param {number} lat - Latitude of the location.
-     * @param {number} lon - Longitude of the location.
-     */
+// Load hourly Forecast
     async function loadHourlyForecast(lat, lon) {
         if (!lat || !lon) {
-            forecastDisplay.innerHTML = `<p class="error-message">Could not find location data. Please search for a city on the <a href="index.html">Home</a> page first.</p>`;
+            forecastDisplay.innerHTML = `<p class="error-message">Could not find location data. Please search for a city.</p>`;
             return;
         }
 
@@ -30,10 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Groups forecast data by day and displays it on the page.
-     * @param {object} data - The forecast data from the API.
-     */
+// Display forecast data
     function displayForecast(data) {
         forecastDisplay.innerHTML = '';
 
@@ -106,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Search Function
+// Search Function
     async function handleSearch() {
         const address = searchInput.value;
         if (!address) {
@@ -136,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Getting data from the LocalStorage
+// Getting data from the LocalStorage
     function initializeApp() {
         const savedLocation = localStorage.getItem('weatherLocation');
         if (savedLocation) {
@@ -155,16 +148,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Nav-bar
-        const mobileItems = document.getElementById('mobileItems');
-        const hamburguer = document.getElementById('hamburguer');
-        window.ShowItems = function() { // Attach to window to make it accessible from HTML onclick
-            mobileItems.classList.toggle('hidden');
-        }
+// Mobile Nav-bar
+    const mobileItems = document.getElementById('mobileItems');
+    const hamburguer = document.getElementById('hamburguer');
+    window.ShowItems = function() { // Attach to window to make it accessible from HTML onclick
+        mobileItems.classList.toggle('hidden');
+    }
 
-    // Footer Year
-        document.getElementById('year').textContent = new Date().getFullYear();
+// Footer Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Start the application
+// Start the application
     initializeApp();
 });

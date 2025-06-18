@@ -127,10 +127,38 @@ header {
     width: 25px;
 }
 
+
+#allow-location-button:hover {
+    background-color: #205b96;
+}
+
 .weather-container {
     display: flex;
     justify-content: center;
     gap: 20rem;
+}
+
+.location-prompt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.allow-location-button {
+    border: none;
+    background-color: #2770B9;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 .weather-live {
@@ -330,10 +358,6 @@ footer p {
         box-shadow: 0px 5px 5px 0px rgba(27, 27, 27, 0.3);
     }
 
-    .hidden {
-        display: none;
-    }
-
     /* Main */
     .search-title {
         text-align: center;
@@ -348,6 +372,10 @@ footer p {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .hidden {
+        display: none;
     }
 
     .forecast-cards {

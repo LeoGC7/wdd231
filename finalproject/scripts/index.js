@@ -2,6 +2,9 @@
 const key = '5f666d0a454737f9bd70ace0543b52b9';
 const searchInput = document.getElementById('addressSearch');
 const searchButton = document.querySelector('.search-button');
+const locationPrompt = document.getElementById('location-prompt');
+const allowLocationButton = document.getElementById('allow-location-button');
+const weatherContainer = document.querySelector('.weather-container');
 
 // Load Weather Functions
     // Live Weather
@@ -120,71 +123,48 @@ const searchButton = document.querySelector('.search-button');
                     figure.appendChild(icon);
                     figure.appendChild(description);
                     forecastCard.appendChild(figure);
-
+                
                 // Wetaher Info Card
-                    const weatherInfo = document.createElement('div');
-                    weatherInfo.classList.add('weather-info')
+                const weatherInfo = document.createElement('div');
+                weatherInfo.classList.add('weather-info')
 
                 // Rain
-                    const rainItem = document.createElement('div');
-                    rainItem.classList.add('weather-info-item');
-                    const rainTitle = document.createElement('p');
-                    rainTitle.classList.add('info-title');
-                    rainTitle.innerText = 'Rain:';
-                    const rainValue = document.createElement('p');
-                    rainValue.classList.add('info-text');
-                    if (forecast.rainValue && forecast.rain['1h']) {
-                        rainValue.innerText = `${forecast.rain['1h']} mm`;
-                    } else {
-                        // If no rain data, display 0
-                        rainValue.innerText = '0 mm';
-                    }
-
-                    rainItem.appendChild(rainTitle);
-                    rainItem.appendChild(rainValue);
-                    weatherInfo.appendChild(rainItem);
+                const rainItem = document.createElement('div');
+                rainItem.classList.add('weather-info-item');
+                rainItem.innerHTML = `
+                    <p class="info-title">Rain:</p>
+                    <p class="info-text">${(forecast.rain && forecast.rain['3h']) ? forecast.rain['3h'] + ' mm' : '0 mm'}</p>
+                `;
+                weatherInfo.appendChild(rainItem);
 
                 // Feels Like
-                    const feelsLikeItem = document.createElement('div');
-                    feelsLikeItem.classList.add('weather-info-item');
-                    const feelsLikeTitle = document.createElement('p');
-                    feelsLikeTitle.classList.add('info-title');
-                    feelsLikeTitle.innerText = 'Feels Like:';
-                    const feelsLikeValue = document.createElement('p');
-                    feelsLikeValue.classList.add('info-text');
-                    feelsLikeValue.innerText = `${forecast.main.feels_like}°C`;
-                    feelsLikeItem.appendChild(feelsLikeTitle);
-                    feelsLikeItem.appendChild(feelsLikeValue);
-                    weatherInfo.appendChild(feelsLikeItem);
+                const feelsLikeItem = document.createElement('div');
+                feelsLikeItem.classList.add('weather-info-item');
+                feelsLikeItem.innerHTML = `
+                    <p class="info-title">Feels Like:</p>
+                    <p class="info-text">${(forecast.main.feels_like)}°C</p>
+                `;
+                weatherInfo.appendChild(feelsLikeItem);
 
                 // Humidity
                 const humidityItem = document.createElement('div');
-                    humidityItem.classList.add('weather-info-item');
-                    const humidityTitle = document.createElement('p');
-                    humidityTitle.classList.add('info-title');
-                    humidityTitle.innerText = 'Humidity:';
-                    const humidityValue = document.createElement('p');
-                    humidityValue.classList.add('info-text');
-                    humidityValue.innerText = `${forecast.main.humidity}%`;
-                    humidityItem.appendChild(humidityTitle);
-                    humidityItem.appendChild(humidityValue);
-                    weatherInfo.appendChild(humidityItem);
+                humidityItem.classList.add('weather-info-item');
+                humidityItem.innerHTML = `
+                    <p class="info-title">Humidity:</p>
+                    <p class="info-text">${forecast.main.humidity}%</p>
+                `;
+                weatherInfo.appendChild(humidityItem);
 
                 // Clouds
-                    const cloudsItem = document.createElement('div');
-                    cloudsItem.classList.add('weather-info-item');
-                    const cloudsTitle = document.createElement('p');
-                    cloudsTitle.classList.add('info-title');
-                    cloudsTitle.innerText = 'Clouds:';
-                    const cloudsValue = document.createElement('p');
-                    cloudsValue.classList.add('info-text');
-                    cloudsValue.innerText = `${forecast.clouds.all}%`;
-                    cloudsItem.appendChild(cloudsTitle);
-                    cloudsItem.appendChild(cloudsValue);
-                    weatherInfo.appendChild(cloudsItem);
+                const cloudsItem = document.createElement('div');
+                cloudsItem.classList.add('weather-info-item');
+                cloudsItem.innerHTML = `
+                    <p class="info-title">Clouds:</p>
+                    <p class="info-text">${forecast.clouds.all}%</p>
+                `;
+                weatherInfo.appendChild(cloudsItem);
 
-                    forecastCard.appendChild(weatherInfo);
-
+                forecastCard.appendChild(weatherInfo);
                 forecastList.appendChild(forecastCard);
             });
 
@@ -202,7 +182,7 @@ const searchButton = document.querySelector('.search-button');
         })
     }
 
-    // Hanlde Search Function
+    // Handle Search Function
     async function handleSearch() {
         const address = searchInput.value;
 
@@ -224,10 +204,11 @@ const searchButton = document.querySelector('.search-button');
                 return
             }
 
-            const {lat, lon} = geoData[0];
+            const {lat, lon, name} = geoData[0];
 
             localStorage.setItem('weatherLocation', JSON.stringify({ lat, lon, name }));
 
+            showWeatherDisplay();
             loadWeatherNow(lat, lon);
             loadWeatherForecast(lat, lon);
 
@@ -237,28 +218,42 @@ const searchButton = document.querySelector('.search-button');
         }
     }
 
-    // Calling LoadWeather Functions
-    async function initializeApp() {
-        try {
-            const position = await getCoordinates();
-            const { latitude, longitude } = position.coords;
-            
-            loadWeatherNow(latitude, longitude);
-            loadWeatherForecast(latitude, longitude);
+// Handling the Allow Location button
+    async function handleAllowLocationClick() {
+            try {
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
+                const { latitude, longitude } = position.coords;
 
-        } catch (error) {
-            console.log('Geolocation permission denied or failed.', error);
-            alert("Location access denied. Please allow location access or use the search bar.");
+                // Load all the functions of weather
+                showWeatherDisplay();
+                loadWeatherNow(latitude, longitude);
+                loadWeatherForecast(latitude, longitude);
+
+            } catch (error) {
+                console.error('Geolocation permission denied or failed.', error);
+                alert("Location access was denied. Please use the search bar to find a city.");
+            }
         }
+
+// Hiding the location prompt and displaying the cards
+    function showWeatherDisplay() {
+        locationPrompt.classList.add('hidden');
+        weatherContainer.classList.remove('hidden');
     }
+    
 
-    // Search Event Listener
-    searchButton.addEventListener('click', handleSearch);
-    searchInput.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-            handleSearch();
-        }
-    });
+// Search Event Listener
+searchButton.addEventListener('click', handleSearch);
+searchInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        handleSearch();
+    }
+});
+
+// listening for the click to trigger the function
+allowLocationButton.addEventListener('click', handleAllowLocationClick);
 
 // Mobile Nav-bar
 const mobileItems = document.getElementById('mobileItems');
@@ -272,11 +267,8 @@ function ShowItems() {
     }
 }
 
-// Getting Year fot the Copyright text
+// Getting Year for the Copyright text
 const date = new Date();
 const currentYear = date.getFullYear();
 const year = document.getElementById('year')
 year.textContent = currentYear;
-
-// Start the application on page load
-initializeApp();
