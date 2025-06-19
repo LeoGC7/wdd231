@@ -1,4 +1,4 @@
-import { showModal, closeModal } from './index.js'
+import { showModal, closeModal } from './modals.js' // VIDEO COMMENT: 8 ------- using ES Modules
 
 document.addEventListener('DOMContentLoaded', () => {
     const key = '5f666d0a454737f9bd70ace0543b52b9';
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const description = forecast.weather[0].description;
                 const rain = (forecast.rain && forecast.rain['3h']) ? `${forecast.rain['3h']} mm` : '0 mm';
 
-                // Using innerHTML to be easier instead of appendchild(); // VIDEO COMMENT: Using template literals
+                // Using innerHTML to be easier instead of appendchild(); // VIDEO COMMENT: 7 ------- Using template literals
                 card.innerHTML = `
                     <p class="card-hour">${hour}</p>
                     <p class="card-temperature">${temp}</p>

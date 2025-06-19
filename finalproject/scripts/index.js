@@ -1,3 +1,5 @@
+import { showModal, closeModal } from './modals.js'
+
 // DOM Elements
 const key = '5f666d0a454737f9bd70ace0543b52b9';
 const searchInput = document.getElementById('addressSearch');
@@ -6,21 +8,8 @@ const locationPrompt = document.getElementById('location-prompt');
 const allowLocationButton = document.getElementById('allow-location-button');
 const weatherContainer = document.querySelector('.weather-container');
 
-// Modal elements
-const modal = document.getElementById('custom-modal');
-const modalMessage = document.getElementById('modal-message');
 const modalCloseButton = document.getElementById('modal-close-button');
-
-
-// Modal functions 
-export function showModal(message) {
-    modalMessage.textContent = message;
-    modal.showModal(); // VIDEO COMMENT: Modal Dialogos display
-}
-
-export function closeModal() {
-    modal.close();
-}
+const modal = document.getElementById('custom-modal');
 
 
 // Load Weather Functions
@@ -29,16 +18,16 @@ export function closeModal() {
         const urlNow = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
 
         try {
-            const response = await fetch(urlNow); // VIDEO COMMENT: Fetching data from the OpenWeather API
+            const response = await fetch(urlNow); // 1 ------- VIDEO COMMENT: Fetching data from the OpenWeather API
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-            const data = await response.json(); // VIDEO COMMENT: Parsing the data to JSON
+            const data = await response.json(); // 1 ------- VIDEO COMMENT: Parsing the data to JSON
 
             // City
                 const city = document.getElementById('city');
                 city.innerText = data.name;
 
-                localStorage.setItem('weatherLocation', JSON.stringify({lat: lat, lon: lon, name: data.name})) // VIDEO COMMENT: Saving the location in the Local storage
+                localStorage.setItem('weatherLocation', JSON.stringify({lat: lat, lon: lon, name: data.name})) // 3 ------- VIDEO COMMENT: Saving the location in the Local storage
 
             // Icon
                 const image = document.getElementById('weatherImg');
@@ -93,14 +82,14 @@ export function closeModal() {
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             const data = await response.json();
 
-            const forecasts = data.list.filter(item => { // VIDEO COMMENT: Filtering the array by the time
+            const forecasts = data.list.filter(item => { // VIDEO COMMENT: 6 ------- Filtering the array by the time
                 const forecastDate = new Date(item.dt * 1000);
                 return forecastDate.getHours() === 12;
             }).slice(0, 3);
 
             forecastList.innerHTML = '';
 
-            forecasts.forEach(forecast => { // VIDEO COMMENT: Creating content dinamically
+            forecasts.forEach(forecast => { // VIDEO COMMENT: 2 ------- Creating content dinamically
                 // Forecast Card
                     const forecastCard = document.createElement('div');
                     forecastCard.classList.add('weather-card');
@@ -263,46 +252,45 @@ function initializePage() {
 }
 
 
-// Event Listeners  // VIDEO COMMENT: Event listeners
+// Event Listeners  // VIDEO COMMENT: 5 ------- Event listener
+    // Search Event Listener
+    searchButton.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    });
 
-// Search Event Listener
-searchButton.addEventListener('click', handleSearch);
-searchInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-        handleSearch();
-    }
-});
 
+    // Closing Modal Event
+    modalCloseButton.addEventListener('click', closeModal);
+    // Closing by clicking on the backdrop
+    modal.addEventListener("click", e => {
+        const dialogDimensions = modal.getBoundingClientRect()
+        if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+        ) {
+        modal.close()
+        }
+    })
 
-// Closing Modal Event
-modalCloseButton.addEventListener('click', closeModal);
-// Closing by clicking on the backdrop
-modal.addEventListener("click", e => {
-    const dialogDimensions = modal.getBoundingClientRect()
-    if (
-      e.clientX < dialogDimensions.left ||
-      e.clientX > dialogDimensions.right ||
-      e.clientY < dialogDimensions.top ||
-      e.clientY > dialogDimensions.bottom
-    ) {
-      modal.close()
-    }
-  })
+    // listening for the click to trigger the function
+    allowLocationButton.addEventListener('click', handleAllowLocationClick);
 
-// listening for the click to trigger the function
-allowLocationButton.addEventListener('click', handleAllowLocationClick);
+    // Mobile Nav-bar
+    const hamburguer = document.getElementById('hamburguer'); 
 
-// Mobile Nav-bar
-const hamburguer = document.getElementById('hamburguer'); 
-
-hamburguer.addEventListener('click', () => {
-    const mobileItems = document.getElementById('mobileItems');
-    if (mobileItems.classList.contains('hidden')) {
-        mobileItems.classList.remove('hidden');
-    } else {
-        mobileItems.classList.add('hidden');
-    }
-});
+    hamburguer.addEventListener('click', () => {
+        const mobileItems = document.getElementById('mobileItems');
+        if (mobileItems.classList.contains('hidden')) {
+            mobileItems.classList.remove('hidden');
+        } else {
+            mobileItems.classList.add('hidden');
+        }
+    });
 
 // Getting Year for the Copyright text
 const date = new Date();
