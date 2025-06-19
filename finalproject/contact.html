@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Leonardo Gameiro Correa">
-    <meta name="description" content="WeatherCheck Home Page - Final Project for WDD231">
-    <meta property="og:title" content="WeatherCheck Home Page">
-    <meta property="og:description" content="WeatherCheck Home Page - Final Project for WDD231">
-    <title>WeatherCheck - Home</title>
+    <meta name="description" content="WeatherCheck Contact Us Page - Final Project for WDD231">
+    <meta property="og:title" content="WeatherCheck Contact Us">
+    <meta property="og:description" content="WeatherCheck Contact Us - Final Project for WDD231">
+    <title>Contact Us</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/contact.css">
     <link rel="icon" href="favicon.ico">
     <script defer src="scripts/index.js"></script>
 </head>
@@ -47,68 +48,34 @@
 
     <!-- Main -->
     <main>
-        <!-- Search Bar -->
-        <div class="search-bar-container">
-            <h1 class="search-title">Precision Weather, Every Time</h1>
-            <div class="search-bar">
-                <input type="text" class="search-input" id="addressSearch" placeholder="Search a City">
-                <button class="search-button">
-                    <img src="images/lupa.png" alt="lupa" class="search-img">
-                </button>
-            </div>
-        </div>
-
-        <!-- Asking for the user location -->
-        <div id="location-prompt" class="location-prompt">
-            <p>Allow access to your current location or search for a city to get started.</p>
-            <button id="allow-location-button" class="allow-location-button">Allow Location</button>
-        </div>
-
-        <!-- Weather Display -->
-        <div class="weather-container hidden">
-            <!-- Live Weather -->
-            <div class="weather-live" id="weatherLive">
-                <h2 class="weather-title">Live Weather</h2>
-
-                <!-- Weather Card -->
-                <div class="weather-card">
-                    <p class="card-title" id="city"></p>
-                    <div class="weather-info-item tempContainer">
-                        <p class="info-text temperature" id="temperature"></p>
-                    </div>
-                    <figure class="w-image-container">
-                        <img src="" alt="weather-image" class="weather-img" id="weatherImg">
-                        <p class="weather-desc" id="description"></p>
-                    </figure>
-                    <div class="weather-info">
-                        <div class="weather-info-item">
-                            <p class="info-title">Rain:</p>
-                            <p class="info-text" id="rain"></p>
-                        </div>
-                        <div class="weather-info-item">
-                            <p class="info-title">Feels Like:</p>
-                            <p class="info-text" id="feelsLike"></p>
-                        </div>
-                        <div class="weather-info-item">
-                            <p class="info-title">Humidity:</p>
-                            <p class="info-text" id="humidity"></p>
-                        </div>
-                        <div class="weather-info-item">
-                            <p class="info-title">Clouds:</p>
-                            <p class="info-text" id="clouds"></p>
-                        </div>
-                    </div>
+        <h1 class="page-title">Send us a message!</h1>
+        <form action="thankyou.html" method="GET" class="contact-form">
+            <div class="form-card">
+                <p class="form-card-title">Your Information</p>
+                <div class="form-item">
+                    <label for="name" class="form-label">Full name:*</label>
+                    <input type="text" class="form-input" name="name" id="name" required>
+                </div>
+                <div class="form-item">
+                    <label for="email" class="form-label">Email*</label>
+                    <input type="email" class="form-input" name="email" id="email" required>
+                </div>
+                <div class="form-item last">
+                    <label for="phone" class="form-label">Phone*</label>
+                    <input type="tel" class="form-input" name="phone" id="phone" required>
                 </div>
             </div>
-
-            <!-- 3-day Forecast -->
-            <div class="weather-3-day">
-                <h2 class="weather-title" id="forecastTitle"></h2>
-
-                <!-- Forecast Cards -->
-                <div class="forecast-cards" id="forecastCards"></div>
+            <div class="form-card">
+                <p class="form-card-title">Message</p>
+                <div class="form-item last">
+                    <label for="message" class="form-label">Tell us what you're thinking!*</label>
+                    <textarea class="form-input" name="message" id="message" required></textarea>
+                </div>
             </div>
-        </div>
+            <div class="form-button-container">
+                <button type="submit" class="form-button">Send</button>
+            </div>
+        </form>
     </main>
 
     <!-- Footer -->

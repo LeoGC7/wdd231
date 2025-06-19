@@ -5,11 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const city2Input = document.getElementById('searchCity2');
     const compareButton = document.getElementById('compareButton');
 
-    /**
-     * Fetching and Displaying data for a single city based on the name and it's index
-     * @param {string} cityName - City name
-     * @param {number} cardIndex - The index of the corresponding HTML card
-     */
+// Getting data from both cities
     async function getAndDisplayWeather(cityName, cardIndex) {
         // Selecting elements of the card using it's index
         const cityTitle = document.getElementById(`city${cardIndex}`);

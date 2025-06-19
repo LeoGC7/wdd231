@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Getting the Div element where the items will be displayed
+    // Getting the form display div
     const formDataDisplay = document.getElementById('formDataDisplay');
     
     // Creating a SearchParams

@@ -1,0 +1,137 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.page-title {
+    color: #2770B9;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.contact-form {
+    padding: 1.8rem 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7);
+}
+
+.form-card {
+    position: relative;
+    border: solid 0.1rem #e0e0e0;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-card-title {
+    position: absolute;
+    margin: 0;
+    top: -0.6rem;
+    left: 1rem;
+    background-color: white;
+    padding: 0 0.5rem;
+    font-weight: bold;
+    color:#2770B9;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+}
+
+.form-label {
+    color: rgb(54, 54, 54);
+    margin-bottom: 0.3rem;
+}
+
+.form-input {
+    border-radius: 0.3rem;
+    border: 0.1rem solid #b6b6b6;
+    font-size: 18px;
+    height: 28px;
+    padding-left: 0.5rem;
+}
+
+.form-input:focus {
+    outline: 0.1rem solid #2770B9;
+    border: 0.1rem solid #2770B9;
+}
+
+#message {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-card:last-child {
+    padding-bottom: 1.5rem; 
+    /* Don't know why it doesn't work */
+}
+
+.last {
+    padding-bottom: 1.5rem;
+}
+
+.form-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-button {
+    border: none;
+    background-color: #042447;
+    color: white;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    padding: 0.35rem 1.5rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+    .form-item {
+        width: 200px;
+    }
+}
+
+/* Thank you Page */
+#formDataDisplay {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 0px rgba(220, 220, 220, 0.7)
+}
+
+.data-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+}
+
+.data-value {
+    margin: 0;
+    color:rgb(54, 54, 54)
+}
+
+.data-name {
+    font-weight: bold;
+    color: #2770B9;
+    padding-left: 0.3rem;
+    border-left: 0.3rem solid #2770B9;
+}
+
+@media screen and (max-width: 770px) {
+    .data-item {
+        width: 240px;
+    }
+
+    #emailSub {
+        font-size: 0.8rem;
+    }
+}

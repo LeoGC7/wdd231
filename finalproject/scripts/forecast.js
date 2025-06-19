@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Forecast Title
             const title = document.createElement('p');
             title.className = 'forecast-card-title';
-            const forecastDate = new Date(`${date}T00:00:00`); // Use T00:00:00 to avoid timezone issues
+            const forecastDate = new Date(`${date}T00:00:00`);
             const dayName = forecastDate.toLocaleDateString('en-US', { weekday: 'long' });
             const monthDay = forecastDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
             title.textContent = `${dayName} - ${monthDay}`;
