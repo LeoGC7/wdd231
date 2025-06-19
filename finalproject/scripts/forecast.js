@@ -179,11 +179,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 // Mobile Nav-bar
-    const mobileItems = document.getElementById('mobileItems');
-    const hamburguer = document.getElementById('hamburguer');
-    window.ShowItems = function() { // Attach to window to make it accessible from HTML onclick
-        mobileItems.classList.toggle('hidden');
-    }
+    const hamburguer = document.getElementById('hamburguer'); 
+
+    hamburguer.addEventListener('click', () => {
+        const mobileItems = document.getElementById('mobileItems');
+        if (mobileItems.classList.contains('hidden')) {
+            mobileItems.classList.remove('hidden');
+        } else {
+            mobileItems.classList.add('hidden');
+        }
+    });
 
 // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();

@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             clouds.innerText = `${data.clouds.all}%`;
 
         } catch (error) {
-            console.error(error);
             cityTitle.innerText = error.message;
         }
     }
@@ -112,11 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter') SearchCompare();
     });
     
-    // Mobile Nav-bar
-    const mobileItems = document.getElementById('mobileItems');
-    window.ShowItems = function() {
-        mobileItems.classList.toggle('hidden');
-    }
+
+// Mobile Nav-bar
+    const hamburguer = document.getElementById('hamburguer'); 
+
+    hamburguer.addEventListener('click', () => {
+        const mobileItems = document.getElementById('mobileItems');
+        if (mobileItems.classList.contains('hidden')) {
+            mobileItems.classList.remove('hidden');
+        } else {
+            mobileItems.classList.add('hidden');
+        }
+    });
 
     // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();

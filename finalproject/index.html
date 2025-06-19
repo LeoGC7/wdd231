@@ -7,6 +7,8 @@
     <meta name="description" content="WeatherCheck Home Page - Final Project for WDD231">
     <meta property="og:title" content="WeatherCheck Home Page">
     <meta property="og:description" content="WeatherCheck Home Page - Final Project for WDD231">
+    <meta property="og:image" content="https://leogc7.github.io/wdd231/images/cover.jpg">
+    <meta property="og:url" content="https://leogc7.github.io/wdd231/finalproject/index.html">
     <title>WeatherCheck - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,18 +31,16 @@
                     <a href="index.html" class="nav-item">Home</a>
                     <a href="forecast.html" class="nav-item">Detailed Forecast</a>
                     <a href="compare.html" class="nav-item">Weather Compare</a>
-                    <a href="contact.html" class="nav-item">Contact Us</a>
                 </div>
             </nav>
 
             <nav class="mobile-nav">
-                <button class="mobile-button" id="hamburguer" onclick="ShowItems()">&#9776</button>
+                <button class="mobile-button" id="hamburguer">&#9776;</button>
             </nav>
             <div class="mobile-items hidden" id="mobileItems">
                 <a href="index.html" class="nav-item">Home</a>
                 <a href="forecast.html" class="nav-item">Forecast</a>
                 <a href="compare.html" class="nav-item">Weather Compare</a>
-                <a href="contact.html" class="nav-item">Contact Us</a>
             </div>
         </div>
     </header>
@@ -77,7 +77,7 @@
                         <p class="info-text temperature" id="temperature"></p>
                     </div>
                     <figure class="w-image-container">
-                        <img src="" alt="weather-image" class="weather-img" id="weatherImg">
+                        <img src="images/card-icon.png" alt="weather-image" id="weatherImg" loading="lazy">
                         <p class="weather-desc" id="description"></p>
                     </figure>
                     <div class="weather-info">
@@ -102,7 +102,7 @@
             </div>
 
             <!-- 3-day Forecast -->
-            <div class="weather-3-day">
+            <div>
                 <h2 class="weather-title" id="forecastTitle"></h2>
 
                 <!-- Forecast Cards -->

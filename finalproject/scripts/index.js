@@ -79,7 +79,6 @@ function closeModal() {
 
 
         } catch (error) {
-            console.log('Error: ', error);
             showModal("Could not load current weather data. Please try again.");
         }  
     }
@@ -187,7 +186,6 @@ function closeModal() {
             });
 
         } catch (error) {
-            console.error('Error fetching the forecast:', error);
             forecastList.innerHTML = '<p>Unable to load forecast data</p>';
         }
     }
@@ -224,7 +222,6 @@ function closeModal() {
             loadWeatherForecast(lat, lon);
 
         } catch (error) {
-            console.log('Error: ', error);
             showModal("An error occurred while searching for the location.");
         }
     }
@@ -243,7 +240,6 @@ function closeModal() {
                 loadWeatherForecast(latitude, longitude);
 
             } catch (error) {
-                console.error('Geolocation permission denied or failed.', error);
                 showModal("Location access was denied. Please use the search bar to find a city.");
             }
         }
@@ -296,16 +292,16 @@ modal.addEventListener("click", e => {
   })
 
 // Mobile Nav-bar
-const mobileItems = document.getElementById('mobileItems');
-const hamburguer = document.getElementById('hamburguer');
+const hamburguer = document.getElementById('hamburguer'); 
 
-function ShowItems() {
+hamburguer.addEventListener('click', () => {
+    const mobileItems = document.getElementById('mobileItems');
     if (mobileItems.classList.contains('hidden')) {
         mobileItems.classList.remove('hidden');
     } else {
         mobileItems.classList.add('hidden');
     }
-}
+});
 
 // Getting Year for the Copyright text
 const date = new Date();
