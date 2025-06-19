@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!weatherResponse.ok) throw new Error(`Weather fetch failed for ${cityName}`);
             const data = await weatherResponse.json();
 
-            // Creating the Card based on the data received
+            // Creating the Card based on the data received // VIDEO COMMENT: Creating content dinamically
             cityTitle.innerText = `${data.name}, ${data.sys.country}`;
             temperature.innerText = `${Math.round(data.main.temp)}°C`;
             weatherImg.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;

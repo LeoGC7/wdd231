@@ -1,3 +1,5 @@
+import { showModal, closeModal } from './index.js'
+
 document.addEventListener('DOMContentLoaded', () => {
     const key = '5f666d0a454737f9bd70ace0543b52b9';
     const forecastDisplay = document.getElementById('forecastDisplay');
@@ -7,21 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('custom-modal');
     const modalMessage = document.getElementById('modal-message');
     const modalCloseButton = document.getElementById('modal-close-button');
-
-// Modal functions
-    function showModal(message) {
-        if (modal) {
-            modalMessage.textContent = message;
-            modal.showModal();
-        }
-    }
-
-    function closeModal() {
-        if (modal) {
-            modal.close();
-        }
-    }
-
 
 // Load hourly Forecast
     async function loadHourlyForecast(lat, lon) {
@@ -85,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             weatherCardsContainer.className = 'weather-cards';
 
             // Forecast Card
-            dayForecasts.forEach(forecast => {
+            dayForecasts.forEach(forecast => { // VIDEO COMMENT: Creating content dinamically
                 const card = document.createElement('div');
                 card.className = 'card';
 
@@ -95,12 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const description = forecast.weather[0].description;
                 const rain = (forecast.rain && forecast.rain['3h']) ? `${forecast.rain['3h']} mm` : '0 mm';
 
-                // Using innerHTML to be easier instead of appendchild();
+                // Using innerHTML to be easier instead of appendchild(); // VIDEO COMMENT: Using template literals
                 card.innerHTML = `
                     <p class="card-hour">${hour}</p>
                     <p class="card-temperature">${temp}</p>
                     <div class="card-icon-container">
-                        <img src="${iconSrc}" alt="${description}" class="card-image">
+                        <img src="${iconSrc}" alt="${description}" class="card-image"> 
                         <p class="card-description">${description}</p>
                     </div>
                     <div class="forecast-info">
@@ -165,18 +152,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 handleSearch();
             }
         });
-
-        // Close modal
-        if(modal) {
-            modalCloseButton.addEventListener('click', closeModal);
-            modal.addEventListener('click', (event) => {
-                const dialogDimensions = modal.getBoundingClientRect();
-                if (event.clientX < dialogDimensions.left || event.clientX > dialogDimensions.right || event.clientY < dialogDimensions.top || event.clientY > dialogDimensions.bottom) {
-                    closeModal();
-                }
-            });
-        }
     }
+
+// Closing Modal Event
+modalCloseButton.addEventListener('click', closeModal);
+// Closing by clicking on the backdrop
+modal.addEventListener("click", e => {
+    const dialogDimensions = modal.getBoundingClientRect()
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+    ) {
+        modal.close()
+    }
+    })
 
 // Mobile Nav-bar
     const hamburguer = document.getElementById('hamburguer'); 

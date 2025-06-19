@@ -12,13 +12,13 @@ const modalMessage = document.getElementById('modal-message');
 const modalCloseButton = document.getElementById('modal-close-button');
 
 
-// Modal functions
-function showModal(message) {
+// Modal functions 
+export function showModal(message) {
     modalMessage.textContent = message;
-    modal.showModal();
+    modal.showModal(); // VIDEO COMMENT: Modal Dialogos display
 }
 
-function closeModal() {
+export function closeModal() {
     modal.close();
 }
 
@@ -29,16 +29,16 @@ function closeModal() {
         const urlNow = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`;
 
         try {
-            const response = await fetch(urlNow);
+            const response = await fetch(urlNow); // VIDEO COMMENT: Fetching data from the OpenWeather API
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-            const data = await response.json();
+            const data = await response.json(); // VIDEO COMMENT: Parsing the data to JSON
 
             // City
                 const city = document.getElementById('city');
                 city.innerText = data.name;
 
-                localStorage.setItem('weatherLocation', JSON.stringify({lat: lat, lon: lon, name: data.name}))
+                localStorage.setItem('weatherLocation', JSON.stringify({lat: lat, lon: lon, name: data.name})) // VIDEO COMMENT: Saving the location in the Local storage
 
             // Icon
                 const image = document.getElementById('weatherImg');
@@ -93,14 +93,14 @@ function closeModal() {
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             const data = await response.json();
 
-            const forecasts = data.list.filter(item => {
+            const forecasts = data.list.filter(item => { // VIDEO COMMENT: Filtering the array by the time
                 const forecastDate = new Date(item.dt * 1000);
                 return forecastDate.getHours() === 12;
             }).slice(0, 3);
 
             forecastList.innerHTML = '';
 
-            forecasts.forEach(forecast => {
+            forecasts.forEach(forecast => { // VIDEO COMMENT: Creating content dinamically
                 // Forecast Card
                     const forecastCard = document.createElement('div');
                     forecastCard.classList.add('weather-card');
@@ -142,44 +142,44 @@ function closeModal() {
                     forecastCard.appendChild(figure);
                 
                 // Wetaher Info Card
-                const weatherInfo = document.createElement('div');
-                weatherInfo.classList.add('weather-info')
+                    const weatherInfo = document.createElement('div');
+                    weatherInfo.classList.add('weather-info')
 
                 // Rain
-                const rainItem = document.createElement('div');
-                rainItem.classList.add('weather-info-item');
-                rainItem.innerHTML = `
-                    <p class="info-title">Rain:</p>
-                    <p class="info-text">${(forecast.rain && forecast.rain['3h']) ? forecast.rain['3h'] + ' mm' : '0 mm'}</p>
-                `;
-                weatherInfo.appendChild(rainItem);
+                    const rainItem = document.createElement('div');
+                    rainItem.classList.add('weather-info-item');
+                    rainItem.innerHTML = `
+                        <p class="info-title">Rain:</p>
+                        <p class="info-text">${(forecast.rain && forecast.rain['3h']) ? forecast.rain['3h'] + ' mm' : '0 mm'}</p>
+                    `;
+                    weatherInfo.appendChild(rainItem);
 
                 // Feels Like
-                const feelsLikeItem = document.createElement('div');
-                feelsLikeItem.classList.add('weather-info-item');
-                feelsLikeItem.innerHTML = `
-                    <p class="info-title">Feels Like:</p>
-                    <p class="info-text">${Math.round(forecast.main.feels_like)}°C</p>
-                `;
-                weatherInfo.appendChild(feelsLikeItem);
+                    const feelsLikeItem = document.createElement('div');
+                    feelsLikeItem.classList.add('weather-info-item');
+                    feelsLikeItem.innerHTML = `
+                        <p class="info-title">Feels Like:</p>
+                        <p class="info-text">${Math.round(forecast.main.feels_like)}°C</p>
+                    `;
+                    weatherInfo.appendChild(feelsLikeItem);
 
                 // Humidity
-                const humidityItem = document.createElement('div');
-                humidityItem.classList.add('weather-info-item');
-                humidityItem.innerHTML = `
-                    <p class="info-title">Humidity:</p>
-                    <p class="info-text">${forecast.main.humidity}%</p>
-                `;
-                weatherInfo.appendChild(humidityItem);
+                    const humidityItem = document.createElement('div');
+                    humidityItem.classList.add('weather-info-item');
+                    humidityItem.innerHTML = `
+                        <p class="info-title">Humidity:</p>
+                        <p class="info-text">${forecast.main.humidity}%</p>
+                    `;
+                    weatherInfo.appendChild(humidityItem);
 
                 // Clouds
                 const cloudsItem = document.createElement('div');
-                cloudsItem.classList.add('weather-info-item');
-                cloudsItem.innerHTML = `
-                    <p class="info-title">Clouds:</p>
-                    <p class="info-text">${forecast.clouds.all}%</p>
-                `;
-                weatherInfo.appendChild(cloudsItem);
+                    cloudsItem.classList.add('weather-info-item');
+                    cloudsItem.innerHTML = `
+                        <p class="info-title">Clouds:</p>
+                        <p class="info-text">${forecast.clouds.all}%</p>
+                    `;
+                    weatherInfo.appendChild(cloudsItem);
 
                 forecastCard.appendChild(weatherInfo);
                 forecastList.appendChild(forecastCard);
@@ -263,7 +263,7 @@ function initializePage() {
 }
 
 
-// Event Listeners 
+// Event Listeners  // VIDEO COMMENT: Event listeners
 
 // Search Event Listener
 searchButton.addEventListener('click', handleSearch);
@@ -273,8 +273,6 @@ searchInput.addEventListener('keyup', (event) => {
     }
 });
 
-// listening for the click to trigger the function
-allowLocationButton.addEventListener('click', handleAllowLocationClick);
 
 // Closing Modal Event
 modalCloseButton.addEventListener('click', closeModal);
@@ -290,6 +288,9 @@ modal.addEventListener("click", e => {
       modal.close()
     }
   })
+
+// listening for the click to trigger the function
+allowLocationButton.addEventListener('click', handleAllowLocationClick);
 
 // Mobile Nav-bar
 const hamburguer = document.getElementById('hamburguer'); 
