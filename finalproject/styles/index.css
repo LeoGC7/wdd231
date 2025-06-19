@@ -279,6 +279,11 @@ footer p {
     margin: 0;
 }
 
+.video {
+    color: white;
+    font-weight: bold;
+}
+
 .footer-items {
     display: flex;
     justify-content: space-between;
