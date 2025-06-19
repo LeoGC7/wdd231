@@ -3,6 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const forecastDisplay = document.getElementById('forecastDisplay');
     const searchInput = document.getElementById('addressSearch');
     const searchButton = document.querySelector('.search-button');
+    const searchResultTitle = document.getElementById('searchResultTitle');
+    const modal = document.getElementById('custom-modal');
+    const modalMessage = document.getElementById('modal-message');
+    const modalCloseButton = document.getElementById('modal-close-button');
+
+// Modal functions
+    function showModal(message) {
+        if (modal) {
+            modalMessage.textContent = message;
+            modal.showModal();
+        }
+    }
+
+    function closeModal() {
+        if (modal) {
+            modal.close();
+        }
+    }
+
 
 // Load hourly Forecast
     async function loadHourlyForecast(lat, lon) {
@@ -21,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             displayForecast(data);
 
         } catch (error) {
-            console.error('Error fetching the forecast:', error);
             forecastDisplay.innerHTML = '<p class="error-message">Unable to load forecast data. Please try again later.</p>';
+            searchResultTitle.textContent = 'Error Loading Forecast';
         }
     }
 
@@ -55,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Forecast Title
             const title = document.createElement('p');
             title.className = 'forecast-card-title';
-            const forecastDate = new Date(`${date}T00:00:00`);
+            const forecastDate = new Date(`${date}T12:00:00z`);
             const dayName = forecastDate.toLocaleDateString('en-US', { weekday: 'long' });
             const monthDay = forecastDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
             title.textContent = `${dayName} - ${monthDay}`;
@@ -103,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleSearch() {
         const address = searchInput.value;
         if (!address) {
-            alert('Please enter a city or address');
+            showModal('Please enter a city or address');
             return;
         }
 
@@ -115,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const geoData = await response.json();
 
             if (geoData.length === 0) {
-                alert(`Could not find location: ${address}`);
+                showModal(`Could not find location: ${address}`);
                 return;
             }
 
@@ -124,8 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadHourlyForecast(lat, lon);
 
         } catch (error) {
-            console.error('Error during search:', error);
-            alert("An error occurred while searching for the location.");
+            showModal("An error occurred while searching for the location.");
         }
     }
 
@@ -137,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadHourlyForecast(lat, lon);
         } else {
             forecastDisplay.innerHTML = `<p class="error-message">Welcome! Please search for a city on the <a href="index.html">Home</a> page to see the detailed forecast.</p>`;
+            searchResultTitle.textContent = 'Welcome!';
         }
 
         // Event Listener
@@ -146,6 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 handleSearch();
             }
         });
+
+        // Close modal
+        if(modal) {
+            modalCloseButton.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => {
+                const dialogDimensions = modal.getBoundingClientRect();
+                if (event.clientX < dialogDimensions.left || event.clientX > dialogDimensions.right || event.clientY < dialogDimensions.top || event.clientY > dialogDimensions.bottom) {
+                    closeModal();
+                }
+            });
+        }
     }
 
 // Mobile Nav-bar

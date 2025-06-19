@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const city1Input = document.getElementById('searchCity1');
     const city2Input = document.getElementById('searchCity2');
     const compareButton = document.getElementById('compareButton');
+    const modal = document.getElementById('custom-modal');
+    const modalMessage = document.getElementById('modal-message');
+    const modalCloseButton = document.getElementById('modal-close-button');
+
+// Modal functions
+    function showModal(message) {
+        if (modal) {
+            modalMessage.textContent = message;
+            modal.showModal();
+        }
+    }
+
+    function closeModal() {
+        if (modal) {
+            modal.close();
+        }
+    }
 
 // Getting data from both cities
     async function getAndDisplayWeather(cityName, cardIndex) {
@@ -64,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const city2 = city2Input.value.trim();
 
         if (!city1 || !city2) {
-            alert('Please enter a name for both cities.');
+            showModal(`Please enter a name for both cities`);
             return;
         }
 
@@ -72,6 +89,17 @@ document.addEventListener('DOMContentLoaded', () => {
         getAndDisplayWeather(city1, 1);
         getAndDisplayWeather(city2, 2);
     }
+
+    // Close modal
+        if(modal) {
+            modalCloseButton.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => {
+                const dialogDimensions = modal.getBoundingClientRect();
+                if (event.clientX < dialogDimensions.left || event.clientX > dialogDimensions.right || event.clientY < dialogDimensions.top || event.clientY > dialogDimensions.bottom) {
+                    closeModal();
+                }
+            });
+        }
 
     // Starting the search when the button is clicked
     compareButton.addEventListener('click', SearchCompare);

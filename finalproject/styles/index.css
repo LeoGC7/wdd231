@@ -157,10 +157,6 @@ header {
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
-}
-
 .weather-live {
     display: flex;
     flex-direction: column;
@@ -236,6 +232,44 @@ header {
     gap: 2rem;
 }
 
+/* Modal */
+.modal-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    width: 400px;
+    border: none;
+}
+
+.modal-content::backdrop {
+    background-color: #000a1459;
+}
+
+#modal-message {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+#modal-close-button {
+    background-color: #2770B9;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#modal-close-button:hover {
+    background-color: #205b96;
+}
+
 /* Footer */
 footer {
     margin-top: 2rem;
@@ -302,6 +336,10 @@ footer p {
 .copy-text {
     color: white;
     font-size: 0.8rem;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Mobile CSS */

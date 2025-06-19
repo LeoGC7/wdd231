@@ -6,6 +6,23 @@ const locationPrompt = document.getElementById('location-prompt');
 const allowLocationButton = document.getElementById('allow-location-button');
 const weatherContainer = document.querySelector('.weather-container');
 
+// Modal elements
+const modal = document.getElementById('custom-modal');
+const modalMessage = document.getElementById('modal-message');
+const modalCloseButton = document.getElementById('modal-close-button');
+
+
+// Modal functions
+function showModal(message) {
+    modalMessage.textContent = message;
+    modal.showModal();
+}
+
+function closeModal() {
+    modal.close();
+}
+
+
 // Load Weather Functions
     // Live Weather
     async function loadWeatherNow(lat, lon) {
@@ -46,7 +63,7 @@ const weatherContainer = document.querySelector('.weather-container');
 
             // Feels Like
                 const feelsLike = document.getElementById('feelsLike');
-                feelsLike.innerText = `${data.main.feels_like}°C`
+                feelsLike.innerText = `${Math.round(data.main.feels_like)}°C`
 
             // Humidity
                 const humidity = document.getElementById('humidity');
@@ -63,7 +80,8 @@ const weatherContainer = document.querySelector('.weather-container');
 
         } catch (error) {
             console.log('Error: ', error);
-        }   
+            showModal("Could not load current weather data. Please try again.");
+        }  
     }
 
     // Weather Forecast
@@ -142,7 +160,7 @@ const weatherContainer = document.querySelector('.weather-container');
                 feelsLikeItem.classList.add('weather-info-item');
                 feelsLikeItem.innerHTML = `
                     <p class="info-title">Feels Like:</p>
-                    <p class="info-text">${(forecast.main.feels_like)}°C</p>
+                    <p class="info-text">${Math.round(forecast.main.feels_like)}°C</p>
                 `;
                 weatherInfo.appendChild(feelsLikeItem);
 
@@ -175,19 +193,12 @@ const weatherContainer = document.querySelector('.weather-container');
     }
 
 // Search Functions
-    // Get Local Coordinates
-    function getCoordinates() {
-        return new Promise((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, reject);
-        })
-    }
-
     // Handle Search Function
     async function handleSearch() {
         const address = searchInput.value;
 
         if (!address) {
-            alert('Please enter a city or address');
+            showModal('Please enter a city');
             return;
         }
 
@@ -200,7 +211,7 @@ const weatherContainer = document.querySelector('.weather-container');
             const geoData = await response.json();
 
             if (geoData.length === 0) {
-                alert(`Could not find location: ${address}`);
+                showModal(`Could not find location: ${address}`);
                 return
             }
 
@@ -214,7 +225,7 @@ const weatherContainer = document.querySelector('.weather-container');
 
         } catch (error) {
             console.log('Error: ', error);
-            alert("An error occurred while searching for the location.")
+            showModal("An error occurred while searching for the location.");
         }
     }
 
@@ -233,7 +244,7 @@ const weatherContainer = document.querySelector('.weather-container');
 
             } catch (error) {
                 console.error('Geolocation permission denied or failed.', error);
-                alert("Location access was denied. Please use the search bar to find a city.");
+                showModal("Location access was denied. Please use the search bar to find a city.");
             }
         }
 
@@ -243,6 +254,20 @@ const weatherContainer = document.querySelector('.weather-container');
         weatherContainer.classList.remove('hidden');
     }
     
+// Page Initialization
+function initializePage() {
+    const storedLocation = localStorage.getItem('weatherLocation');
+
+    if(storedLocation) {
+        const { lat, lon } = JSON.parse(storedLocation);
+        showWeatherDisplay();
+        loadWeatherNow(lat, lon);
+        loadWeatherForecast(lat, lon);
+    }
+}
+
+
+// Event Listeners 
 
 // Search Event Listener
 searchButton.addEventListener('click', handleSearch);
@@ -254,6 +279,21 @@ searchInput.addEventListener('keyup', (event) => {
 
 // listening for the click to trigger the function
 allowLocationButton.addEventListener('click', handleAllowLocationClick);
+
+// Closing Modal Event
+modalCloseButton.addEventListener('click', closeModal);
+// Closing by clicking on the backdrop
+modal.addEventListener("click", e => {
+    const dialogDimensions = modal.getBoundingClientRect()
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      modal.close()
+    }
+  })
 
 // Mobile Nav-bar
 const mobileItems = document.getElementById('mobileItems');
@@ -272,3 +312,5 @@ const date = new Date();
 const currentYear = date.getFullYear();
 const year = document.getElementById('year')
 year.textContent = currentYear;
+
+initializePage();
